@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterporfolio/Services/MyStrings.dart';
+import 'package:flutterporfolio/Widget/DetaildSkillsCardController.dart';
 import 'package:get/get.dart';
 import 'Page/Home/Home.dart';
 import 'Page/Home/HomeBinding.dart';
@@ -8,6 +9,7 @@ import 'Services/MyColors.dart';
 void main() {
   Get.put(MyColors());
   Get.put(MyStrings());
+  Get.put(DetailedSkillsCardController());
   runApp(const MyApp());
 }
 

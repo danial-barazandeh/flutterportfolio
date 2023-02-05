@@ -67,11 +67,16 @@ class Skills extends GetView<SkillsController> {
               const SizedBox(
                 height: 16,
               ),
-              RateBar("80","Front"),
+              RateBar("80","Frontend"),
+              const SizedBox(
+                height: 16,
+              ),
+              RateBar("80","Database"),
               const SizedBox(
                 height: 16,
               ),
               RateBar("60","Deploying"),
+
             ],
           ),
           shortestSide > 900

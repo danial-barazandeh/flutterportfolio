@@ -3,19 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutterporfolio/Services/MyColors.dart';
 import 'package:flutterporfolio/Services/MyStrings.dart';
+import 'package:flutterporfolio/Widget/DetaildSkillsCard.dart';
 import 'package:flutterporfolio/Widget/DetaildSkillsController.dart';
 import 'package:flutterporfolio/Widget/Intro.dart';
 import 'package:flutterporfolio/Widget/Skills.dart';
 import 'package:get/get.dart';
+
 class MyCustomScrollBehavior extends MaterialScrollBehavior {
   // Override behavior methods and getters like dragDevices
   @override
   Set<PointerDeviceKind> get dragDevices => {
-    PointerDeviceKind.touch,
-    PointerDeviceKind.mouse,
-    // etc.
-  };
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        // etc.
+      };
 }
+
 class DetailedSkills extends GetView<DetailedSkillsController> {
   MyColors myColors = Get.find<MyColors>();
   MyStrings myStrings = Get.find<MyStrings>();
@@ -27,37 +30,31 @@ class DetailedSkills extends GetView<DetailedSkillsController> {
     var shortestSide = MediaQuery.of(context).size.shortestSide;
 
     return Container(
-      width: screenWidth,
-      height: 100,
-      color: myColors.backGround1,
-      child: ScrollConfiguration(
-        behavior: MyCustomScrollBehavior(),
-        child: ListView(
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          children: [
-
-            Container(
-              height: 100,
-              width: 100,
-              child: Text("s"),
-              decoration: BoxDecoration(
-                  color: myColors.backGround2,
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
-                boxShadow: [
-                  BoxShadow(
-                    color: myColors.backGround3,
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
-                  ),
-                ],
-              ),
-            ),
-
-          ],
+        width: screenWidth,
+        height: 182,
+        alignment: Alignment.center,
+        color: myColors.backGround1,
+        margin: EdgeInsets.symmetric(vertical: 32),
+        child: ScrollConfiguration(
+          behavior: MyCustomScrollBehavior(),
+          child: ListView(
+            padding: EdgeInsets.symmetric(vertical: 16),
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            children: [
+              SizedBox(width: 32,),
+              DetailedSkillsCard("Frontend","TailWind, JavaScript, React, Vue, Flutter, Blade", key: key,),
+              SizedBox(width: 32,),
+              DetailedSkillsCard("Backend","PHP, Next.js, Laravel, WordPress", key: key),
+              SizedBox(width: 32,),
+              DetailedSkillsCard("Mobile","Flutter, Java", key: key),
+              SizedBox(width: 32,),
+              DetailedSkillsCard("Deployment","cPanel, DirectAdmin, Ubuntu", key: key),
+              SizedBox(width: 32,),
+              DetailedSkillsCard("Database","Firebase, MySQL, PostgreSQL", key: key)
+            ],
+          ),
         ),
-      ),
     );
   }
 }
