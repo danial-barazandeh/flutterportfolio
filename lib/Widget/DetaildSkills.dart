@@ -7,15 +7,17 @@ import 'package:flutterporfolio/Widget/DetaildSkillsController.dart';
 import 'package:flutterporfolio/Widget/Intro.dart';
 import 'package:flutterporfolio/Widget/Skills.dart';
 import 'package:get/get.dart';
+
 class MyCustomScrollBehavior extends MaterialScrollBehavior {
   // Override behavior methods and getters like dragDevices
   @override
   Set<PointerDeviceKind> get dragDevices => {
-    PointerDeviceKind.touch,
-    PointerDeviceKind.mouse,
-    // etc.
-  };
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        // etc.
+      };
 }
+
 class DetailedSkills extends GetView<DetailedSkillsController> {
   MyColors myColors = Get.find<MyColors>();
   MyStrings myStrings = Get.find<MyStrings>();
@@ -28,8 +30,9 @@ class DetailedSkills extends GetView<DetailedSkillsController> {
 
     return Container(
       width: screenWidth,
-      height: 100,
+      height: 150,
       color: myColors.backGround1,
+      margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.1, vertical: 32),
       child: ScrollConfiguration(
         behavior: MyCustomScrollBehavior(),
         child: ListView(
@@ -37,23 +40,83 @@ class DetailedSkills extends GetView<DetailedSkillsController> {
           scrollDirection: Axis.horizontal,
           children: [
 
+
+
             Container(
-              height: 100,
-              width: 100,
-              child: Text("s"),
+              height: 150,
+              width: 150,
               decoration: BoxDecoration(
-                  color: myColors.backGround2,
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                color: myColors.backGround2,
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
                 boxShadow: [
                   BoxShadow(
                     color: myColors.backGround3,
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
+                    offset: const Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Text(
+                    "Front",
+                    style: TextStyle(color: myColors.textColor2),
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Text(
+                    "HTML,CSS,TailWind, JavaScript, React, Vue, Flutter, Next.js, Blade (Laravel)",
+                    style: TextStyle(color: myColors.textColor, fontSize: 12),
+                    textAlign: TextAlign.center,
                   ),
                 ],
               ),
             ),
+
+            SizedBox(width: 32,),
+
+            Container(
+              height: 150,
+              width: 150,
+              decoration: BoxDecoration(
+                color: myColors.backGround2,
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
+                boxShadow: [
+                  BoxShadow(
+                    color: myColors.backGround3,
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Text(
+                    "Backend",
+                    style: TextStyle(color: myColors.textColor2),
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Text(
+                    "PHP, Next.js, Laravel, WordPress",
+                    style: TextStyle(color: myColors.textColor, fontSize: 12),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+
+
 
           ],
         ),
