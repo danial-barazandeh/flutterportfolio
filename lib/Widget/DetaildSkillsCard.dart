@@ -15,12 +15,6 @@ class DetailedSkillsCard extends GetView<DetailedSkillsCardController> {
   final String content;
 
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-
-    var shortestSide = MediaQuery.of(context).size.shortestSide;
-
-    var isHovering = false;
     return MouseRegion(
       onEnter: (s){
         controller.setIsHovering(title);
