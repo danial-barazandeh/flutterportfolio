@@ -68,13 +68,11 @@ class Skills extends GetView<SkillsController> {
                 height: 16,
               ),
               RateBar("80","Frontend"),
-<<<<<<< HEAD
+
               const SizedBox(
                 height: 16,
               ),
               RateBar("80","Database"),
-=======
->>>>>>> e76f946cae4488caf7bc06b310d23bbe3529a20f
               const SizedBox(
                 height: 16,
               ),
